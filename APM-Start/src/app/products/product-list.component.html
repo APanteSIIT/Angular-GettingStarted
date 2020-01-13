@@ -1,6 +1,6 @@
 <div class='card'>
     <div class='card-header'>
-         Product List   
+            {{messageFromStarComponent}}
     </div>
 </div>
 <div class='card-body'>
@@ -46,7 +46,8 @@
                    <td>{{product.productCode |convertToSpaces :'-'}}</td>
                    <td>{{product.releaseDate}}</td>
                    <td>{{product.price |currency : 'EUR' :symbol}}</td>
-                   <td>{{product.startRating}}</td>
+                   <td><pm-star [rating]='product.starRating'
+                        (message)='onNotify($event)'></pm-star></td>
                </tr>
             </tbody>
         </table>
